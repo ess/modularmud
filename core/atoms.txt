@@ -1,0 +1,62 @@
+#  Created by Greg Mefford on 2007-09-09.
+#  Copyright (c 2007. All rights reserved.
+
+-ROOT- 
+
+PLAYER -ROOT-
+#########################
+
+ATTRIBUTE -ROOT-
+#########################
+STRENGTH     ATTRIBUTE
+VITALITY     ATTRIBUTE
+AGILITY      ATTRIBUTE
+DEXTERITY    ATTRIBUTE
+INTELLIGENCE ATTRIBUTE
+
+OBJECT -ROOT-
+#########################
+AREA     OBJECT
+CREATURE OBJECT
+ITEM     OBJECT
+#########################
+TOOL      ITEM
+CONTAINER ITEM
+HUMANOID  CREATURE
+#########################
+DWARF HUMANOID
+GNOME HUMANOID
+
+ACTION -ROOT-
+#########################
+ATTACK ACTION
+EMOTE  ACTION
+MOVE   ACTION
+#########################
+PIERCING_ATTACK     ATTACK
+SLASHING_ATTACK     ATTACK
+CHOPPING_ATTACK     ATTACK
+BLUDGEONING_ATTACK  ATTACK
+JAB                 BLUDGEONING_ATTACK PIERCING_ATTACK
+PUNCH               BLUDGEONING_ATTACK
+KICK                BLUDGEONING_ATTACK
+#########################
+SMILE    EMOTE
+GRIN     SMILE
+WAVE     EMOTE
+LAUGH    EMOTE
+CHUCKLE  LAUGH
+CHORTLE  LAUGH
+GIGGLE   LAUGH
+#########################
+GO         MOVE
+NORTH      GO
+NORTHEAST  GO
+EAST       GO
+SOUTHEAST  GO
+SOUTH      GO
+SOUTHWEST  GO
+WEST       GO
+NORTHWEST  GO
+IN         GO
+OUT        GO
