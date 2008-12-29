@@ -1,0 +1,22 @@
+A piece of code will list its GETs and SETs up front (eg. 'GET SWORD1.damage PLAYER67.strength BADDIE1.armor')
+Database will schedule tasks by not sending the GETs until it's safe
+	It is safe when no higher-priority in-flight tasks are going to SET any properties that are requested
+	SET locks all children of that atom, recursively
+Tasks always retired in order
+An instance can be created or deleted only if its parent's .children property is locked
+
+Engine side:
+gets = %w(SWORD1.damage PLAYER67.strength BADDIE1.armor)
+sets = %w(PLAYER67.health BADDIE1.health)
+code = proc do |db|
+	...code...
+	damage = db["SWORD1.damage"]
+	...code...
+	db["BADDIE1.health"] -= 10
+	...code...
+end
+attack = Action.new(gets, sets, code)
+
+DB Side:
+database.can_get?(task_id, property)
+database.will_set(task_id, property)
