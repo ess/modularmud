@@ -1,0 +1,1 @@
+The original implementation of this server is based on Richard Bartle's description of MUD1's architecture.
